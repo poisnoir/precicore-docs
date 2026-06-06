@@ -44,5 +44,5 @@ iPhone IMU → Wi-Fi/UDP → spine-node/input/imu → input/raw (Spine)
 ## See also
 
 - [Input Overview](/docs/spine-nodes/input/intro) — all supported input devices
-- [Purifier](/docs/spine-nodes/intro) — Kalman filter applied to the raw IMU stream
+- [Purifier](/docs/spine-nodes/purifier/intro) — Kalman filter applied to the raw IMU stream
 - [Kinematics Engine](/docs/spine-nodes/kinematics-engine/intro) — converts clean motion into joint angles

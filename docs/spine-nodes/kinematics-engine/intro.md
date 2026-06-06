@@ -49,5 +49,5 @@ Raw operator input (joystick, IMU) covers a large range of motion. The kinematic
 ## See also
 
 - [Spine](/docs/spine/intro) — routes `input/clean` and `arm/target` between nodes
-- [Purifier](/docs/spine-nodes/intro) — upstream source of `input/clean`
+- [Purifier](/docs/spine-nodes/purifier/intro) — upstream source of `input/clean`
 - [CrackHead](/docs/spine-nodes/crack-head/intro) — validates joint trajectories in simulation before hardware execution

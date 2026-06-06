@@ -92,6 +92,7 @@ const config = {
           { type: 'html', position: 'left', value: '<span class="nav-version">v0.1</span>' },
           { to: '/docs/spine/intro', label: 'Spine', position: 'left' },
           { to: '/docs/spine-nodes/intro', label: 'Spine Nodes', position: 'left' },
+          { type: 'html', position: 'right', value: '<span class="nav-search-hint"><kbd>/</kbd></span>' },
           { href: 'https://github.com/poisnoir', label: 'GitHub', position: 'right' },
           { href: 'https://precicore.ca', label: 'Website', position: 'right' },
         ],

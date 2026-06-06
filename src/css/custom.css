@@ -685,6 +685,27 @@ button[title='Copy code to clipboard'] {
   }
 }
 
+/* ── SEARCH SHORTCUT HINT ── */
+.nav-search-hint {
+  display: flex;
+  align-items: center;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.nav-search-hint kbd {
+  font-size: 0.75rem;
+  padding: 0.15em 0.5em;
+  border-bottom-width: 1px;
+  color: var(--ifm-color-emphasis-600);
+}
+
+@media (max-width: 996px) {
+  .nav-search-hint {
+    display: none;
+  }
+}
+
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

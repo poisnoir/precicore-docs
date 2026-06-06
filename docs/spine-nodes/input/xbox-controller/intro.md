@@ -46,5 +46,5 @@ Xbox Controller → spine-node/input/xbox → input/raw (Spine topic)
 ## See also
 
 - [Input Overview](/docs/spine-nodes/input/intro) — all supported input devices
-- [Purifier](/docs/spine-nodes/intro) — filters the raw signal before it reaches the arm
+- [Purifier](/docs/spine-nodes/purifier/intro) — filters the raw signal before it reaches the arm
 - [Spine](/docs/spine/intro) — the network layer carrying `input/raw`

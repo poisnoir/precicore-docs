@@ -177,7 +177,7 @@ function HowItWorks() {
       number: '02',
       title: 'Purifier Filters',
       description: 'A Kalman filter strips tremor and noise from raw movement, producing a stable, clinically precise signal.',
-      link: '/docs/spine-nodes/intro',
+      link: '/docs/spine-nodes/purifier/intro',
     },
     {
       number: '03',

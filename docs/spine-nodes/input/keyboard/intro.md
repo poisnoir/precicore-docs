@@ -35,5 +35,5 @@ Keys map to discrete axis values (−1.0, 0.0, or 1.0). The signal passes throug
 ## See also
 
 - [Input Overview](/docs/spine-nodes/input/intro) — all supported input devices
-- [Purifier](/docs/spine-nodes/intro) — downstream filter for `input/raw`
+- [Purifier](/docs/spine-nodes/purifier/intro) — downstream filter for `input/raw`
 - [Xbox Controller](/docs/spine-nodes/input/xbox-controller/intro) — analog alternative for more precise testing
