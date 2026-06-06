@@ -54,6 +54,66 @@ article,
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* ── SELECTION ── */
+::selection {
+  background: var(--precicore-accent);
+  color: #fff;
+}
+
+[data-theme='dark'] ::selection {
+  background: var(--precicore-accent);
+  color: #141414;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-toc-border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--precicore-accent);
+}
+
+/* ── READING PROGRESS BAR ── */
+@supports (animation-timeline: scroll()) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--precicore-accent);
+    transform-origin: 0 0;
+    transform: scaleX(0);
+    z-index: 10000;
+    animation: readingProgress linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  @keyframes readingProgress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+}
+
+/* ── FOCUS RINGS ── */
+:focus-visible {
+  outline: 2px solid var(--precicore-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ── NAVBAR ── */
 .navbar {
   border-bottom: 1px solid var(--ifm-toc-border-color);
@@ -76,6 +136,21 @@ article,
 
 .navbar__link--active {
   font-weight: 600;
+}
+
+/* ── MOBILE NAVBAR ── */
+.navbar-sidebar {
+  background: var(--ifm-background-color);
+  border-right: 1px solid var(--ifm-toc-border-color);
+}
+
+.navbar-sidebar__brand {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  padding: 1rem 1.25rem;
+}
+
+.navbar-sidebar__item .menu__link {
+  font-size: 0.9rem;
 }
 
 /* ── FOOTER ── */
@@ -158,6 +233,37 @@ article,
   margin-top: 2rem;
 }
 
+/* Anchor links on headings */
+.hash-link {
+  color: var(--precicore-accent) !important;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+h1:hover .hash-link,
+h2:hover .hash-link,
+h3:hover .hash-link,
+h4:hover .hash-link {
+  opacity: 1;
+}
+
+/* Link hover effects in doc content */
+.markdown a:not([class]) {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.2s ease, color 0.15s;
+}
+
+.markdown a:not([class]):hover {
+  background-size: 100% 1px;
+  text-decoration: none;
+}
+
+/* Blockquote */
 .markdown blockquote {
   border-left: 3px solid var(--precicore-accent);
   background: var(--ifm-card-background-color);
@@ -169,6 +275,70 @@ article,
 
 .markdown blockquote p {
   margin: 0;
+}
+
+/* Images */
+.markdown img {
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+}
+
+[data-theme='dark'] .markdown img {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* Tables */
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  display: table;
+}
+
+.markdown thead {
+  background: var(--ifm-card-background-color);
+}
+
+.markdown thead th {
+  padding: 0.75rem 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  text-align: left;
+}
+
+.markdown tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.markdown tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown tbody tr:hover td {
+  background: var(--ifm-card-background-color);
+}
+
+/* Keyboard shortcuts */
+kbd {
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  font-size: 0.8em;
+  font-family: var(--ifm-font-family-monospace);
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  color: var(--ifm-font-color-base);
+  white-space: nowrap;
 }
 
 /* ── CODE BLOCKS ── */
@@ -190,6 +360,53 @@ article,
   color: var(--ifm-color-primary);
 }
 
+/* Copy button */
+button[title='Copy code to clipboard'] {
+  border-radius: 4px !important;
+  transition: opacity 0.15s, background 0.15s !important;
+}
+
+/* ── ADMONITIONS ── */
+.alert {
+  border-radius: 4px;
+  border: none;
+  border-left: 3px solid;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.alert--info {
+  background: rgba(74, 144, 217, 0.07);
+  border-left-color: #4a90d9;
+}
+
+.alert--success {
+  background: rgba(61, 158, 107, 0.07);
+  border-left-color: #3d9e6b;
+}
+
+.alert--warning {
+  background: rgba(201, 135, 58, 0.07);
+  border-left-color: #c9873a;
+}
+
+.alert--danger {
+  background: rgba(201, 74, 74, 0.07);
+  border-left-color: #c94a4a;
+}
+
+[class*='admonitionHeading'] {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+[class*='admonitionContent'] p:last-child {
+  margin-bottom: 0;
+}
+
 /* ── TOC ── */
 .table-of-contents {
   font-size: 0.8rem;
@@ -204,6 +421,60 @@ article,
 .table-of-contents__link--active {
   color: var(--ifm-color-primary);
   font-weight: 500;
+}
+
+/* ── PAGINATION ── */
+.pagination-nav {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+  gap: 1rem;
+}
+
+.pagination-nav__link {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.pagination-nav__link:hover {
+  background: var(--ifm-card-background-color);
+  border-color: var(--precicore-accent);
+  text-decoration: none;
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-500);
+  margin-bottom: 0.25rem;
+}
+
+.pagination-nav__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+}
+
+/* ── DOC PAGE FOOTER ── */
+.theme-edit-this-page {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  transition: color 0.15s;
+}
+
+.theme-edit-this-page:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.theme-last-updated {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-500);
+  font-style: normal;
+  letter-spacing: 0.02em;
 }
 
 /* ── REDUCED MOTION ── */
