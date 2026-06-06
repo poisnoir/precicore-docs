@@ -117,6 +117,9 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} PreciCore. Built with Docusaurus.`,
       },
+      mermaid: {
+        theme: { light: 'neutral', dark: 'dark' },
+      },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,

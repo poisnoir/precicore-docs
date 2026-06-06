@@ -40,10 +40,24 @@ function AnimatedStat({ countTo, suffix }) {
 }
 
 function Hero() {
+  const layoutRef = useRef(null);
+
+  useEffect(() => {
+    const el = layoutRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const opacity = Math.max(0.25, 1 - window.scrollY / 480);
+      el.style.opacity = String(opacity);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <section className={styles.hero}>
-      <div className={styles.heroLayout}>
+      <div className={styles.heroLayout} ref={layoutRef}>
         <div className={styles.heroContent}>
+          <img src="/img/logo.svg" alt="PreciCore" className={styles.heroLogo} />
           <p className={styles.heroEyebrow}>Technical Documentation</p>
           <h1 className={styles.heroTitle}>
             Bridge the gap between<br />
@@ -157,21 +171,25 @@ function HowItWorks() {
       number: '01',
       title: 'Operator Input',
       description: 'Xbox controller, iPhone IMU, or keyboard — any source connects through the modular Spine Nodes input layer.',
+      link: '/docs/spine-nodes/input/intro',
     },
     {
       number: '02',
       title: 'Purifier Filters',
       description: 'A Kalman filter strips tremor and noise from raw movement, producing a stable, clinically precise signal.',
+      link: '/docs/spine-nodes/intro',
     },
     {
       number: '03',
       title: 'Spine Routes',
       description: 'Clean commands travel over KCP/UDP with zero-config mDNS discovery and AES-GCM encryption end-to-end.',
+      link: '/docs/spine/intro',
     },
     {
       number: '04',
       title: 'Hardware Executes',
       description: 'CrackHead validates trajectories on a virtual phantom cornea before the 5-DOF arm moves in the real world.',
+      link: '/docs/spine-nodes/crack-head/intro',
     },
   ];
   return (
@@ -179,11 +197,12 @@ function HowItWorks() {
       <p className={styles.sectionLabel}>03 · HOW IT WORKS</p>
       <div className={styles.flowGrid}>
         {steps.map((step) => (
-          <div key={step.number} className={styles.flowStep}>
+          <Link key={step.number} className={styles.flowStep} to={step.link}>
             <span className={styles.flowNumber}>{step.number}</span>
             <h3 className={styles.flowTitle}>{step.title}</h3>
             <p className={styles.flowDescription}>{step.description}</p>
-          </div>
+            <span className={styles.flowArrow}>→</span>
+          </Link>
         ))}
       </div>
     </section>
