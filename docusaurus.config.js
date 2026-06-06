@@ -89,12 +89,11 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-            { to: '/docs/spine-go/intro', label: 'Spine-Go', position: 'left' },
-            { to: '/docs/crackhead/intro', label: 'CrackHead', position: 'left' },
-            { to: '/docs/purifier/intro', label: 'Purifier', position: 'left' },
-            { href: 'https://github.com/poisnoir', label: 'GitHub', position: 'right' },
-            { href: 'https://precicore.ca', label: 'Website', position: 'right' },
-          ],
+          { to: '/docs/spine/intro', label: 'Spine', position: 'left' },
+          { to: '/docs/spine-nodes/intro', label: 'Spine Nodes', position: 'left' },
+          { href: 'https://github.com/poisnoir', label: 'GitHub', position: 'right' },
+          { href: 'https://precicore.ca', label: 'Website', position: 'right' },
+        ],
       },
       footer: {
         style: 'dark',
