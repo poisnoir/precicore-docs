@@ -126,6 +126,19 @@ article,
   border-radius: 2px;
 }
 
+/* ── NAVBAR VERSION BADGE ── */
+.nav-version {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--ifm-color-emphasis-500);
+  border: 1px solid var(--ifm-toc-border-color);
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  font-weight: 500;
+  margin-left: -0.25rem;
+  white-space: nowrap;
+}
+
 /* ── NAVBAR ── */
 .navbar {
   border-bottom: 1px solid var(--ifm-toc-border-color);
