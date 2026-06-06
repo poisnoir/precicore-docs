@@ -1,13 +1,13 @@
 .main {
-  background: #0e0e0e;
-  color: #f0ece4;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
   min-height: 100vh;
 }
 
 /* ── HERO ── */
 .hero {
   padding: 8rem 4rem 6rem;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
   max-width: 900px;
 }
 
@@ -15,7 +15,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #888;
+  color: var(--ifm-color-emphasis-600);
   margin-bottom: 2rem;
 }
 
@@ -23,7 +23,7 @@
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 400;
   line-height: 1.1;
-  color: #f0ece4;
+  color: var(--ifm-font-color-base);
   margin-bottom: 2rem;
 }
 
@@ -35,7 +35,7 @@
 
 .heroSubtitle {
   font-size: 1rem;
-  color: #888;
+  color: var(--ifm-color-emphasis-600);
   max-width: 480px;
   line-height: 1.7;
   margin-bottom: 2.5rem;
@@ -62,14 +62,14 @@
 
 .btnPrimary:hover {
   background: #d4c9b0;
-  color: #0e0e0e;
+  color: var(--ifm-background-color);
   text-decoration: none;
 }
 
 .btnSecondary {
   padding: 0.75rem 1.5rem;
   border: 1px solid #333;
-  color: #888;
+  color: var(--ifm-color-emphasis-600);
   background: transparent;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
@@ -80,22 +80,22 @@
 }
 
 .btnSecondary:hover {
-  border-color: #888;
-  color: #f0ece4;
+  border-color: var(--ifm-color-emphasis-600);
+  color: var(--ifm-font-color-base);
   text-decoration: none;
 }
 
 /* ── STATS ── */
 .statsSection {
   padding: 5rem 4rem;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
 .sectionLabel {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #555;
+  color: var(--ifm-color-emphasis-500);
   margin-bottom: 3rem;
 }
 
@@ -104,33 +104,33 @@
   align-items: baseline;
   gap: 2rem;
   padding: 1.5rem 0;
-  border-top: 1px solid #1e1e1e;
+  border-top: 1px solid var(--ifm-toc-border-color);
 }
 
 .statNumber {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 300;
-  color: #f0ece4;
+  color: var(--ifm-font-color-base);
   font-family: Georgia, 'Times New Roman', serif;
   min-width: 160px;
 }
 
 .statLabel {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--ifm-color-emphasis-500);
   letter-spacing: 0.05em;
 }
 
 /* ── TOOLS ── */
 .toolsSection {
   padding: 5rem 4rem;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
 .toolsTitle {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 400;
-  color: #f0ece4;
+  color: var(--ifm-font-color-base);
   line-height: 1.2;
   margin-bottom: 4rem;
   max-width: 600px;
@@ -146,12 +146,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: #1e1e1e;
-  border: 1px solid #1e1e1e;
+  background: var(--ifm-toc-border-color);
+  border: 1px solid var(--ifm-toc-border-color);
 }
 
 .toolCard {
-  background: #0e0e0e;
+  background: var(--ifm-background-color);
   padding: 2.5rem;
   text-decoration: none;
   display: block;
@@ -159,7 +159,7 @@
 }
 
 .toolCard:hover {
-  background: #141414;
+  background: var(--ifm-card-background-color);
   text-decoration: none;
 }
 
@@ -167,14 +167,14 @@
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #555;
+  color: var(--ifm-color-emphasis-500);
   margin-bottom: 1rem;
 }
 
 .toolName {
   font-size: 1.5rem;
   font-weight: 400;
-  color: #f0ece4;
+  color: var(--ifm-font-color-base);
   margin-bottom: 1rem;
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
@@ -182,7 +182,7 @@
 
 .toolDescription {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--ifm-color-emphasis-500);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
@@ -201,7 +201,7 @@
 .ctaTitle {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 400;
-  color: #f0ece4;
+  color: var(--ifm-font-color-base);
   line-height: 1.2;
   margin-bottom: 3rem;
   max-width: 500px;
