@@ -19,6 +19,18 @@
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ifm-heading-font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --precicore-accent: #8b5e3c;
+
+  /* ── Design tokens ── */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 0.15s;
+  --duration-base: 0.25s;
+  --duration-slow: 0.6s;
 }
 
 [data-theme='dark'] {
@@ -475,6 +487,102 @@ button[title='Copy code to clipboard'] {
   color: var(--ifm-color-emphasis-500);
   font-style: normal;
   letter-spacing: 0.02em;
+}
+
+/* ── ANNOUNCEMENT BAR ── */
+[data-theme='dark'] div[class*='announcementBar'] {
+  background-color: #1a1a1a !important;
+  color: #e8e4dc !important;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+[class*='announcementBar'] a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+[class*='announcementBar'] a:hover {
+  text-decoration: underline;
+}
+
+[class*='announcementBarContent'] {
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── BREADCRUMBS ── */
+.breadcrumbs {
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.breadcrumbs__item {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.breadcrumbs__link {
+  color: var(--ifm-color-emphasis-600);
+  transition: color 0.15s;
+  background: none;
+  padding: 0;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--ifm-color-primary);
+  background: none;
+  text-decoration: none;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--ifm-font-color-base);
+  font-weight: 500;
+  background: none;
+}
+
+/* ── SIDEBAR CATEGORY ARROWS ── */
+.menu__caret {
+  transition: transform 0.2s ease;
+}
+
+.menu__caret:hover {
+  background: var(--ifm-toc-border-color);
+}
+
+.menu__caret::before {
+  background: var(--precicore-accent) !important;
+}
+
+.menu__link--sublist-caret::after {
+  background: var(--precicore-accent) !important;
+  transition: transform 0.2s ease, opacity 0.15s !important;
+}
+
+/* ── CODE TABS ── */
+.tabs__item {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-600);
+  border-bottom: 2px solid transparent;
+  padding: 0.5rem 1rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tabs__item:hover {
+  color: var(--ifm-font-color-base);
+  background: transparent;
+}
+
+.tabs__item--active {
+  color: var(--ifm-font-color-base) !important;
+  border-bottom-color: var(--precicore-accent) !important;
+  background: transparent !important;
+}
+
+[role='tabpanel'] {
+  padding-top: 0 !important;
 }
 
 /* ── REDUCED MOTION ── */

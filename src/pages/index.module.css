@@ -20,10 +20,17 @@
 .hero {
   padding: 8rem 4rem 6rem;
   border-bottom: 1px solid var(--ifm-toc-border-color);
-  max-width: 900px;
   background-image: radial-gradient(circle, var(--ifm-toc-border-color) 1px, transparent 1px);
   background-size: 24px 24px;
   animation: fadeUp 0.6s ease both;
+}
+
+.heroLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1300px;
 }
 
 .heroEyebrow {
@@ -35,7 +42,7 @@
 }
 
 .heroTitle {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2.2rem, 4vw, 4rem);
   font-weight: 400;
   line-height: 1.1;
   color: var(--ifm-font-color-base);
@@ -51,7 +58,7 @@
 .heroSubtitle {
   font-size: 1rem;
   color: var(--ifm-color-emphasis-600);
-  max-width: 480px;
+  max-width: 420px;
   line-height: 1.7;
   margin-bottom: 2.5rem;
 }
@@ -62,6 +69,50 @@
   flex-wrap: wrap;
 }
 
+/* ── CODE WINDOW ── */
+.heroVisual {
+  display: flex;
+  align-items: center;
+}
+
+.codeWindow {
+  width: 100%;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ifm-card-background-color);
+}
+
+.codeWindowBar {
+  display: flex;
+  gap: 6px;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  background: var(--ifm-background-color);
+}
+
+.codeWindowBar span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ifm-toc-border-color);
+}
+
+.codePreview {
+  margin: 0;
+  padding: 1.5rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-card-background-color);
+  white-space: pre;
+  overflow: auto;
+  border: none;
+}
+
+/* ── BUTTONS ── */
 .btnPrimary {
   padding: 0.75rem 1.5rem;
   border: 1px solid var(--precicore-accent);
@@ -129,6 +180,7 @@
   color: var(--ifm-font-color-base);
   font-family: Georgia, 'Times New Roman', serif;
   min-width: 160px;
+  display: inline-block;
 }
 
 .statLabel {
@@ -210,6 +262,48 @@
   letter-spacing: 0.08em;
 }
 
+/* ── HOW IT WORKS ── */
+.howItWorks {
+  padding: 5rem 4rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  animation: fadeUp 0.6s 0.12s ease both;
+}
+
+.flowGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.flowStep {
+  display: flex;
+  flex-direction: column;
+}
+
+.flowNumber {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--precicore-accent);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.flowTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 0.75rem;
+}
+
+.flowDescription {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-500);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* ── CTA ── */
 .cta {
   padding: 6rem 4rem;
@@ -238,8 +332,23 @@
 }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 996px) {
+  .heroLayout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .heroVisual {
+    display: none;
+  }
+
+  .flowGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
-  .hero, .statsSection, .toolsSection, .cta {
+  .hero, .statsSection, .toolsSection, .howItWorks, .cta {
     padding: 4rem 1.5rem;
   }
 
@@ -251,10 +360,15 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .flowGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero, .statsSection, .toolsSection, .cta {
+  .hero, .statsSection, .toolsSection, .howItWorks, .cta {
     animation: none;
   }
 }

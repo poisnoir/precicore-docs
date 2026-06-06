@@ -1,28 +1,88 @@
+import { useState, useEffect, useRef } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
+function AnimatedStat({ countTo, suffix }) {
+  const [value, setValue] = useState('0');
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const start = performance.now();
+        const duration = 1200;
+        const isFloat = !Number.isInteger(countTo);
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = countTo * eased;
+          setValue(isFloat ? current.toFixed(1) : String(Math.round(current)));
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [countTo]);
+
+  return (
+    <span ref={ref} className={styles.statNumber}>
+      {value}{suffix}
+    </span>
+  );
+}
+
 function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.heroContent}>
-        <p className={styles.heroEyebrow}>Technical Documentation</p>
-        <h1 className={styles.heroTitle}>
-          Bridge the gap between<br />
-          <em>promising simulation</em><br />
-          and micro-precision hardware.
-        </h1>
-        <p className={styles.heroSubtitle}>
-          Everything you need to build with Spine, CrackHead, and Purifier —
-          the open-source stack powering PreciCore's surgical robotics system.
-        </p>
-        <div className={styles.heroButtons}>
-          <Link className={styles.btnPrimary} to="/docs/spine/intro">
-            EXPLORE SPINE →
-          </Link>
-          <Link className={styles.btnSecondary} to="/docs/spine-nodes/intro">
-            EXPLORE NODES
-          </Link>
+      <div className={styles.heroLayout}>
+        <div className={styles.heroContent}>
+          <p className={styles.heroEyebrow}>Technical Documentation</p>
+          <h1 className={styles.heroTitle}>
+            Bridge the gap between<br />
+            <em>promising simulation</em><br />
+            and micro-precision hardware.
+          </h1>
+          <p className={styles.heroSubtitle}>
+            Everything you need to build with Spine, CrackHead, and Purifier —
+            the open-source stack powering PreciCore's surgical robotics system.
+          </p>
+          <div className={styles.heroButtons}>
+            <Link className={styles.btnPrimary} to="/docs/spine/intro">
+              EXPLORE SPINE →
+            </Link>
+            <Link className={styles.btnSecondary} to="/docs/spine-nodes/intro">
+              EXPLORE NODES
+            </Link>
+          </div>
+        </div>
+        <div className={styles.heroVisual}>
+          <div className={styles.codeWindow}>
+            <div className={styles.codeWindowBar}>
+              <span />
+              <span />
+              <span />
+            </div>
+            <pre className={styles.codePreview}>{`// connect a node — 3 lines
+node := spine.NewNode("purifier")
+
+node.Subscribe("input/raw",
+  func(msg spine.Msg) {
+    clean := kalman.Filter(msg.Data)
+    node.Publish("input/clean", clean)
+  },
+)
+
+node.Start()
+// mDNS · KCP/UDP · AES-GCM`}</pre>
+          </div>
         </div>
       </div>
     </section>
@@ -31,17 +91,20 @@ function Hero() {
 
 function Stats() {
   const stats = [
-    { number: '3', label: 'Open Source Tools' },
-    { number: '0.5mm', label: 'Cornea Thickness' },
-    { number: '5-DOF', label: 'Robotic Arm' },
-    { number: 'MIT', label: 'Licensed' },
+    { countTo: 3, suffix: '', label: 'Open Source Tools' },
+    { countTo: 0.5, suffix: 'mm', label: 'Cornea Thickness' },
+    { countTo: 5, suffix: '-DOF', label: 'Robotic Arm' },
+    { fixed: 'MIT', label: 'Licensed' },
   ];
   return (
     <section className={styles.statsSection}>
       <p className={styles.sectionLabel}>01 · THE STACK</p>
       {stats.map((s, i) => (
         <div key={i} className={styles.statRow}>
-          <span className={styles.statNumber}>{s.number}</span>
+          {s.fixed
+            ? <span className={styles.statNumber}>{s.fixed}</span>
+            : <AnimatedStat countTo={s.countTo} suffix={s.suffix} />
+          }
           <span className={styles.statLabel}>{s.label}</span>
         </div>
       ))}
@@ -88,10 +151,49 @@ function Tools() {
   );
 }
 
+function HowItWorks() {
+  const steps = [
+    {
+      number: '01',
+      title: 'Operator Input',
+      description: 'Xbox controller, iPhone IMU, or keyboard — any source connects through the modular Spine Nodes input layer.',
+    },
+    {
+      number: '02',
+      title: 'Purifier Filters',
+      description: 'A Kalman filter strips tremor and noise from raw movement, producing a stable, clinically precise signal.',
+    },
+    {
+      number: '03',
+      title: 'Spine Routes',
+      description: 'Clean commands travel over KCP/UDP with zero-config mDNS discovery and AES-GCM encryption end-to-end.',
+    },
+    {
+      number: '04',
+      title: 'Hardware Executes',
+      description: 'CrackHead validates trajectories on a virtual phantom cornea before the 5-DOF arm moves in the real world.',
+    },
+  ];
+  return (
+    <section className={styles.howItWorks}>
+      <p className={styles.sectionLabel}>03 · HOW IT WORKS</p>
+      <div className={styles.flowGrid}>
+        {steps.map((step) => (
+          <div key={step.number} className={styles.flowStep}>
+            <span className={styles.flowNumber}>{step.number}</span>
+            <h3 className={styles.flowTitle}>{step.title}</h3>
+            <p className={styles.flowDescription}>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
     <section className={styles.cta}>
-      <p className={styles.sectionLabel}>03 · GET STARTED</p>
+      <p className={styles.sectionLabel}>04 · GET STARTED</p>
       <h2 className={styles.ctaTitle}>
         <em>Start building</em><br />with PreciCore.
       </h2>
@@ -99,7 +201,7 @@ function CTA() {
         <Link className={styles.btnPrimary} to="/docs/spine/intro">
           READ THE DOCS →
         </Link>
-        <a className={styles.btnSecondary} href="https://github.com/poisnoir" target="_blank">
+        <a className={styles.btnSecondary} href="https://github.com/poisnoir" target="_blank" rel="noopener noreferrer">
           VIEW ON GITHUB
         </a>
       </div>
@@ -116,6 +218,7 @@ export default function Home() {
         <Hero />
         <Stats />
         <Tools />
+        <HowItWorks />
         <CTA />
       </main>
     </Layout>

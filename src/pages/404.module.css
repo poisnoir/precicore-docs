@@ -1,0 +1,54 @@
+.main {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: var(--ifm-background-color);
+  background-image: radial-gradient(circle, var(--ifm-toc-border-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.content {
+  padding: 4rem;
+}
+
+.code {
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 300;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ifm-toc-border-color);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 2.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--precicore-accent);
+  color: var(--precicore-accent);
+  background: transparent;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--precicore-accent);
+  color: var(--ifm-background-color);
+  text-decoration: none;
+}

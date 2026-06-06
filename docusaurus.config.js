@@ -32,6 +32,11 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  headTags: [
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' } },
+  ],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -64,6 +69,13 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      announcementBar: {
+        id: 'precicore-v01',
+        content: 'v0.1 · MIT Licensed · Open source surgical robotics stack — <a href="https://github.com/poisnoir" target="_blank" rel="noopener">View on GitHub →</a>',
+        backgroundColor: '#f0ece4',
+        textColor: '#1a1a1a',
+        isCloseable: true,
+      },
       colorMode: {
         respectPrefersColorScheme: true,
       },
