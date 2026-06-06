@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: spine-go
 sidebar_position: 1

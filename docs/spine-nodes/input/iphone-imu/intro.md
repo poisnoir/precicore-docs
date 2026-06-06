@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: iPhone IMU
 sidebar_position: 1

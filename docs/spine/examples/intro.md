@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: Examples
 sidebar_position: 1

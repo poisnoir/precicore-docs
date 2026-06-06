@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: Keyboard
 sidebar_position: 1

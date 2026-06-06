@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: spine-py
 sidebar_position: 1

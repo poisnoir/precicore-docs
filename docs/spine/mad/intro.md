@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: MAD
 sidebar_position: 1

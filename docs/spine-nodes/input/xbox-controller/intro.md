@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: Xbox Controller
 sidebar_position: 1

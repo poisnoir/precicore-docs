@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: CrackHead
 sidebar_position: 1

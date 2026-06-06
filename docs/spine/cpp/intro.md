@@ -1,4 +1,4 @@
- ---
+---
 id: intro
 title: spine-cpp
 sidebar_position: 1
