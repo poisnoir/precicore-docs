@@ -28,3 +28,18 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+:root {
+  --ifm-color-primary: #c0392b;
+  --ifm-color-primary-dark: #a93226;
+  --ifm-color-primary-darker: #922b21;
+  --ifm-color-primary-darkest: #7b241c;
+  --ifm-color-primary-light: #e74c3c;
+  --ifm-color-primary-lighter: #ec6557;
+  --ifm-color-primary-lightest: #f1928a;
+  --ifm-card-background-color: #ffffff;
+}
+
+[data-theme='dark'] {
+  --ifm-card-background-color: #1e1e2e;
+}

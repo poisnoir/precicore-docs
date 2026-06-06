@@ -1,50 +1,44 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
+    icon: '🔗',
+    title: 'Spine',
+    description: 'A lightweight, ROS-like communication middleware built from scratch in Go. Pub/sub and RPC over KCP/UDP with zero-config mDNS discovery and AES-GCM encryption.',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+    icon: '🧠',
+    title: 'CrackHead',
+    description: 'A MuJoCo-powered physics simulator for the PreciCore robotic arm. Validate control algorithms and needle trajectories on a virtual phantom cornea before touching hardware.',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    icon: '🌀',
+    title: 'Purifier',
+    description: 'A Kalman filter-based signal processing system. Sits between raw operator input and the control system — turning shaky human movement into stable, precise commands.',
+  },
+  {
+    icon: '🎮',
+    title: 'Input Nodes',
+    description: 'Modular operator input layer supporting Xbox controller, iPhone IMU wrist control, and keyboard — all feeding into Purifier before reaching the robotic arm.',
+  },
+  {
+    icon: '🤖',
+    title: 'Kinematics Engine',
+    description: 'Inverse kinematics and RCM-constrained motion planning for the 5-DOF robotic arm. Maps operator input to precise needle placement at the surgical site.',
+  },
+  {
+    icon: '🌐',
+    title: 'Open Source',
+    description: 'Spine, CrackHead, and Purifier are all MIT licensed and owned entirely by our team. Built in the open, designed to be reused across robotics projects.',
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({icon, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+    <div className={styles.feature}>
+      <div className={styles.featureIcon}>{icon}</div>
+      <h3 className={styles.featureTitle}>{title}</h3>
+      <p className={styles.featureDescription}>{description}</p>
     </div>
   );
 }
@@ -52,12 +46,10 @@ function Feature({Svg, title, description}) {
 export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+      <div className={styles.featuresGrid}>
+        {FeatureList.map((props, idx) => (
+          <Feature key={idx} {...props} />
+        ))}
       </div>
     </section>
   );
