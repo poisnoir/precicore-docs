@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'PreciCore Docs',
+  tagline: 'Precision beyond the human hand.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -20,15 +20,15 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://poisnoir.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/precicore-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'poisnoir', // Usually your GitHub org/user name.
+  projectName: 'precicore-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -83,25 +83,18 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'PreciCore Docs',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'PreciCore Logo',
           src: 'img/logo.svg',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
+            { to: '/docs/spine-go/intro', label: 'Spine-Go', position: 'left' },
+            { to: '/docs/crackhead/intro', label: 'CrackHead', position: 'left' },
+            { to: '/docs/purifier/intro', label: 'Purifier', position: 'left' },
+            { href: 'https://github.com/poisnoir', label: 'GitHub', position: 'right' },
+            { href: 'https://precicore.ca', label: 'Website', position: 'right' },
+          ],
       },
       footer: {
         style: 'dark',
