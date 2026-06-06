@@ -1,3 +1,15 @@
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .main {
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
@@ -9,6 +21,9 @@
   padding: 8rem 4rem 6rem;
   border-bottom: 1px solid var(--ifm-toc-border-color);
   max-width: 900px;
+  background-image: radial-gradient(circle, var(--ifm-toc-border-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  animation: fadeUp 0.6s ease both;
 }
 
 .heroEyebrow {
@@ -30,7 +45,7 @@
 .heroTitle em {
   font-style: italic;
   font-family: Georgia, 'Times New Roman', serif;
-  color: #d4c9b0;
+  color: var(--precicore-accent);
 }
 
 .heroSubtitle {
@@ -49,8 +64,8 @@
 
 .btnPrimary {
   padding: 0.75rem 1.5rem;
-  border: 1px solid #d4c9b0;
-  color: #d4c9b0;
+  border: 1px solid var(--precicore-accent);
+  color: var(--precicore-accent);
   background: transparent;
   font-size: 0.75rem;
   letter-spacing: 0.12em;
@@ -61,14 +76,14 @@
 }
 
 .btnPrimary:hover {
-  background: #d4c9b0;
+  background: var(--precicore-accent);
   color: var(--ifm-background-color);
   text-decoration: none;
 }
 
 .btnSecondary {
   padding: 0.75rem 1.5rem;
-  border: 1px solid #333;
+  border: 1px solid var(--ifm-color-emphasis-300);
   color: var(--ifm-color-emphasis-600);
   background: transparent;
   font-size: 0.75rem;
@@ -89,6 +104,7 @@
 .statsSection {
   padding: 5rem 4rem;
   border-bottom: 1px solid var(--ifm-toc-border-color);
+  animation: fadeUp 0.6s 0.05s ease both;
 }
 
 .sectionLabel {
@@ -125,6 +141,7 @@
 .toolsSection {
   padding: 5rem 4rem;
   border-bottom: 1px solid var(--ifm-toc-border-color);
+  animation: fadeUp 0.6s 0.1s ease both;
 }
 
 .toolsTitle {
@@ -139,7 +156,7 @@
 .toolsTitle em {
   font-style: italic;
   font-family: Georgia, 'Times New Roman', serif;
-  color: #d4c9b0;
+  color: var(--precicore-accent);
 }
 
 .toolsGrid {
@@ -189,13 +206,14 @@
 
 .toolLink {
   font-size: 0.75rem;
-  color: #d4c9b0;
+  color: var(--precicore-accent);
   letter-spacing: 0.08em;
 }
 
 /* ── CTA ── */
 .cta {
   padding: 6rem 4rem;
+  animation: fadeUp 0.6s 0.15s ease both;
 }
 
 .ctaTitle {
@@ -210,7 +228,7 @@
 .ctaTitle em {
   font-style: italic;
   font-family: Georgia, 'Times New Roman', serif;
-  color: #d4c9b0;
+  color: var(--precicore-accent);
 }
 
 .ctaButtons {
@@ -232,5 +250,11 @@
   .statRow {
     flex-direction: column;
     gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero, .statsSection, .toolsSection, .cta {
+    animation: none;
   }
 }
