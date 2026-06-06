@@ -49,7 +49,7 @@ const config = {
           sidebarPath: './sidebars.js',
           editUrl: undefined,
           showLastUpdateTime: false,
-          pagination: false,
+          
         },
         blog: false,
         theme: {
