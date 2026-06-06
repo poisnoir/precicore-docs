@@ -1,44 +1,44 @@
-.heroBanner {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  padding: 5rem 2rem;
-  color: white;
+.main {
+  background: #0e0e0e;
+  color: #f0ece4;
+  min-height: 100vh;
 }
 
-.heroInner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+/* ── HERO ── */
+.hero {
+  padding: 8rem 4rem 6rem;
+  border-bottom: 1px solid #222;
+  max-width: 900px;
 }
 
-.badge {
-  display: inline-block;
-  background: rgba(192, 57, 43, 0.2);
-  border: 1px solid rgba(192, 57, 43, 0.5);
-  color: #e74c3c;
-  padding: 0.3rem 1rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  letter-spacing: 0.5px;
+.heroEyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 2rem;
 }
 
 .heroTitle {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
   line-height: 1.1;
+  color: #f0ece4;
+  margin-bottom: 2rem;
+}
+
+.heroTitle em {
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #d4c9b0;
 }
 
 .heroSubtitle {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
+  font-size: 1rem;
+  color: #888;
+  max-width: 480px;
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .heroButtons {
@@ -47,67 +47,190 @@
   flex-wrap: wrap;
 }
 
-.primaryButton {
-  background: #c0392b;
-  border: none;
-  color: white;
-  font-weight: 600;
-}
-
-.primaryButton:hover {
-  background: #a93226;
-  color: white;
-}
-
-.secondaryButton {
+.btnPrimary {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #d4c9b0;
+  color: #d4c9b0;
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
 }
 
-.secondaryButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border-color: rgba(255, 255, 255, 0.5);
+.btnPrimary:hover {
+  background: #d4c9b0;
+  color: #0e0e0e;
+  text-decoration: none;
 }
 
-.heroStats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+.btnSecondary {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #333;
+  color: #888;
+  background: transparent;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
 }
 
-.stat {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
+.btnSecondary:hover {
+  border-color: #888;
+  color: #f0ece4;
+  text-decoration: none;
+}
+
+/* ── STATS ── */
+.statsSection {
+  padding: 5rem 4rem;
+  border-bottom: 1px solid #222;
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+.statRow {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid #1e1e1e;
 }
 
 .statNumber {
-  display: block;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #e74c3c;
-  margin-bottom: 0.3rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: #f0ece4;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-width: 160px;
 }
 
 .statLabel {
-  display: block;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  color: #666;
+  letter-spacing: 0.05em;
 }
 
+/* ── TOOLS ── */
+.toolsSection {
+  padding: 5rem 4rem;
+  border-bottom: 1px solid #222;
+}
+
+.toolsTitle {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: #f0ece4;
+  line-height: 1.2;
+  margin-bottom: 4rem;
+  max-width: 600px;
+}
+
+.toolsTitle em {
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #d4c9b0;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #1e1e1e;
+  border: 1px solid #1e1e1e;
+}
+
+.toolCard {
+  background: #0e0e0e;
+  padding: 2.5rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+}
+
+.toolCard:hover {
+  background: #141414;
+  text-decoration: none;
+}
+
+.toolTag {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.toolName {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f0ece4;
+  margin-bottom: 1rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.toolDescription {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.toolLink {
+  font-size: 0.75rem;
+  color: #d4c9b0;
+  letter-spacing: 0.08em;
+}
+
+/* ── CTA ── */
+.cta {
+  padding: 6rem 4rem;
+}
+
+.ctaTitle {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: #f0ece4;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+  max-width: 500px;
+}
+
+.ctaTitle em {
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #d4c9b0;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 2.5rem;
+  .hero, .statsSection, .toolsSection, .cta {
+    padding: 4rem 1.5rem;
   }
 
-  .heroStats {
-    grid-template-columns: repeat(2, 1fr);
+  .toolsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statRow {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
